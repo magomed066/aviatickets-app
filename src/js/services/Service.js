@@ -52,6 +52,17 @@ class Service {
 		}
 	}
 
+	async getAirlines() {
+		try {
+			const response = await this.request(`${this.url}/airlines`)
+
+			return response
+		} catch (err) {
+			console.log(err)
+			return Promise.reject(err)
+		}
+	}
+
 	async getPrices(params) {
 		try {
 			let url = new URL(`${this.url}/prices/cheap`)
